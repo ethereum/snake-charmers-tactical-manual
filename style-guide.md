@@ -84,6 +84,11 @@ The following style preferences cover areas where PEP8 does not establish a
 single way in which code should be formatted.
 
 
+## Whitespace
+
+No empty lines at the top of modules.
+
+
 ## Import Statements
 
 ### Overall Ordering
