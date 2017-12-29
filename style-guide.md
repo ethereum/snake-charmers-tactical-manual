@@ -436,6 +436,29 @@ result = get_things(
 )
 ```
 
+### First thing on its own line
+
+Any statement being split across multiple lines **should** move the first *thing*
+to the next line, indented one deeper than the previous line.  For example, changes
+to function names **should not** change indentation level of all arguments. Reading
+the diff is faster and less error prone when only important lines change.
+
+```python
+# should
+result = get_things(
+    argument_a,
+    argument_b,
+    argument_c,
+    argument_d,
+)
+
+# should not
+result = get_things(argument_a,
+                    argument_b,
+                    argument_c,
+                    argument_d,
+                    )
+```
 
 ### Closing parenthesis/bracket/brace
 
