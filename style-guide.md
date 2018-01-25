@@ -488,8 +488,9 @@ for the function arguments should be on the same line as the final argument.
 
 ```python
 def long_signature(
-    thing_a,
-    thing_b,
-    thing_c=None,
-    thing_d=None):
+        thing_a,
+        thing_b,
+        thing_c=None,
+        thing_d=None):
+    pass
 ```
