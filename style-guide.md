@@ -367,6 +367,13 @@ do).
 
 ## Multi-line statements
 
+We have traditionally avoided use of forward slash style multi-line statements.
+
+
+```python
+result = something_long \
+
+
 ### Dangling Commas
 
 Multiline statements should use dangling commas.  The reason for this is that
@@ -386,6 +393,33 @@ x = [
     item_b,
     item_c  # <--- doesn't have a dangling comma
 ]
+```
+
+
+### Long Strings
+
+You **should** use the following pattern for long strings.
+
+```python
+raise ValueError(
+    "This exception message is exceptionally long and thus it "
+    "requires that the message be broken up across multiple lines "
+    "so that the linting gods do not smite us."
+)
+```
+
+
+### Complex statements
+
+Statements with lots of operators can be broken up across multiple lines more
+easily if the entire statement is wrapped in parenthesis.  This allows for line
+breaks that would otherwise not be allowed.
+
+```python
+result = (
+    (variable_a + variable_b) * something_kind_of_long /
+    some_divisor
+)
 ```
 
 
