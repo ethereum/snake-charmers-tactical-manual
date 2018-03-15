@@ -10,3 +10,4 @@ Python development team.
 * [Documentation](./documentation.md)
 * [Operational Security](./opsec.md)
 * [Ideology and Subjectivity](./ideology-and-subjectivity.md)
+* [Gitcoin Bug Bounty Guide](./bug-bounty-program.md)
