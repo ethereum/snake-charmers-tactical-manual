@@ -252,8 +252,26 @@ This reduces cognitive overhead when reading code since a reader may already
 imported on its own, the reader must go find that import to verify that the
 `partial` function is in fact `functools.partial`.
 
+Exceptions to this rule:
 
-### Don't use `from datetime import datetime`
+#### The `abc.abstractmethod` decorator 
+
+This decorator should be imported directly as it is arguably easier to read 
+than using it off of the `abc` namespace.
+
+```python
+class MyClass:
+    @abc.abstractmethod  # harder to read
+    def my_method(self):
+        ...
+        
+    @abstractmethod  # easier to read
+    def my_other_method(self):
+        ...
+```
+
+
+#### Don't use `from datetime import datetime`
 
 You **should not** import the `datetime` class from the `datetime` module.
 Both the class and module share the same name.  By importing the `datetime`
