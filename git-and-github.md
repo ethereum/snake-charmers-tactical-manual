@@ -107,3 +107,17 @@ you've seen a comment and will address it rather than replying.  This reduces
 github inbox spam.
 
 Everyone is free to review any pull request.
+
+## New Projects
+
+Many projects follow a similar pattern, and there are
+certain configurations and links that need to be repeated
+in each repository. One suggested way to do that is to
+clone [this template repo](https://github.com/carver/ethereum-python-project-template/)
+and then push to a new repository once you've named your new project.
+
+One benefit of working that way is that the template is
+maintained as new practices are adopted. Changes to the
+template are straightforward to merge in to projects that
+are based on it, so global maintenance can be
+propagated easily.
