@@ -390,7 +390,7 @@ We have traditionally avoided use of forward slash style multi-line statements.
 
 ```python
 result = something_long \
-
+```
 
 ### Dangling Commas
 
