@@ -32,7 +32,7 @@ requests, as well as removing labels when appropriate.
 ## Pull Requests
 
 We are a distributed team.  The primary way we communicate about our code is
-through github via ppull requests.
+through github via pull requests.
 
 * When you start work on something you should have a pull request opened that
   same day.
