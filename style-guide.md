@@ -546,3 +546,55 @@ def long_signature(
         thing_d=None):
     pass
 ```
+
+# Typing
+
+Since all new code is required to come with type hints ([PEP 484](https://www.python.org/dev/peps/pep-0484/)), the following aims to provide answers to some common questions around working with types and `mypy`.
+
+## Choosing the right type
+
+When working with types, we often have to choose between multiple different types that all may seem like the right candidate for the code in question.
+
+### Function variance
+
+As a rule of thumb, the **parameters** of a function **should** be typed to accept the *most flexible* type that the function can work with.
+
+```python
+# good
+def triple_len(seq: Sequence[T]) -> int:
+    return len(seq) * 3
+
+res_1 = triple_len(["some", "irrelevant", "data"])
+res_2 = triple_len(("some", "irrelevant", "data",))
+
+# bad
+def triple_len(seq: List[T]) -> int:
+    return len(seq) * 3
+
+res_1 = triple_len(["some", "irrelevant", "data"])
+# Doesn't work if `triple_len` is limited to `List[T]`
+# Argument 1 to "triple_len" has incompatible type "Tuple[str, str, str]"; expected "List[<nothing>]"
+
+# res_2 = triple_len(("some", "irrelevant", "data"))
+```
+
+In contrast, the **return type** of a function **should not** be more abstract than the type already known in the function body.
+
+```python
+# good
+def create_things() -> Tuple[str, ...]:
+    return ("some", "irrelevant", "data",)
+
+things = create_things()
+res = triple_len(things)
+
+# bad
+def create_things() -> Iterable[str]:
+    return ("some", "irrelevant", "data",)
+
+things = create_things()
+# Doesn't work if `things` is falsly assumed to *only* qualify `Iterable[str]`
+# Type error: Argument 1 to "triple_len" has incompatible type "Iterable[str]"; expected "Sequence[<nothing>]"
+
+# res = triple_len(things)
+```
