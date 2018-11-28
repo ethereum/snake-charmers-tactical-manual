@@ -427,6 +427,15 @@ raise ValueError(
 ```
 
 
+### Formatting log messages
+
+You **should** use the following string format pattern for log messages, since this pattern is not calculated **unless** it is logged.
+
+```python
+logger.info("%s went %s wrong", 'Something', 'very')
+```
+
+
 ### Complex statements
 
 Statements with lots of operators can be broken up across multiple lines more
