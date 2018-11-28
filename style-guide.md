@@ -429,7 +429,7 @@ raise ValueError(
 
 ### Formatting log messages
 
-You **should** use the following string format pattern for log messages, since this pattern is not calculated **unless** it is logged.
+You **should** use `%` style string formatting for log messages.  This allows for logging aggregators like [Sentry](https://sentry.io/) to group logging messages.
 
 ```python
 logger.info("%s went %s wrong", 'Something', 'very')
