@@ -427,6 +427,15 @@ raise ValueError(
 ```
 
 
+### Formatting log messages
+
+You **should** use `%` style string formatting for log messages.  This allows for logging aggregators like [Sentry](https://sentry.io/) to group logging messages.
+
+```python
+logger.info("%s went %s wrong", 'Something', 'very')
+```
+
+
 ### Complex statements
 
 Statements with lots of operators can be broken up across multiple lines more
