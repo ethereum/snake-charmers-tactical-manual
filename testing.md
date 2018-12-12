@@ -22,7 +22,7 @@ for testing.
 ## Using Mocks
 
 The use of mock objects such as those provided by the
-`pytest-mock`](https://pypi.python.org/pypi/pytest-mock) library should be
+[`pytest-mock`](https://pypi.python.org/pypi/pytest-mock) library should be
 considered an anti-pattern.
 
 ### Mocks are to be avoided
