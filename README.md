@@ -11,3 +11,4 @@ Python development team.
 * [Operational Security](./opsec.md)
 * [Ideology and Subjectivity](./ideology-and-subjectivity.md)
 * [Gitcoin Bug Bounty Guide](./bug-bounty-program.md)
+* [Cutting a Release](./cutting-a-release.md)

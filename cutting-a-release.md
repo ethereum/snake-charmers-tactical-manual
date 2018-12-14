@@ -15,6 +15,7 @@ Steps:
     - Misc
 - [ ] Run `$ make docs` to view the release notes locally. Make sure everything looks like it should.
 - [ ] Once the docs look good, commit the changes.
+- [ ] Push the doc changes to master.
 - [ ] We use [Semantic Versioning](https://semver.org/) for all of our libraries. Decide which bump applies (major, minor, or patch) to the changes that will be relased. Here's a quick cheat sheet:
   - Use a Major version bump when you make incompatible API changes
   - Use a Minor version bump when you add functionality in a backwards-compatible manner
