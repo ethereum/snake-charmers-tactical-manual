@@ -28,5 +28,5 @@ Steps:
   - Create and activate a new virtualenv
   - `$ pip install -U <released_project>`
   - Open shell and confirm that the module import works. Check a simple feature and/or new features
-- [ ] Make sure the Read The Docs build succeeded. Visit the [web3.py Release Notes](https://web3py.readthedocs.io/en/stable/releases.html) and make sure your changes are there.
+- [ ] Make sure the Read The Docs build succeeded. Visit the `https://<project name>.readthedocs.io/en/stable/releases.html` and make sure your changes are there.
 - [ ] Announce to the Gitter channel. Typically this announcement includes a link to the release docs. :tada:
