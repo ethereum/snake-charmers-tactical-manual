@@ -10,6 +10,7 @@ Steps:
 - [ ] Make release notes before bumping the version number:
   - Look at the commits between the last version bump and the current one. Following the template already laid out in `docs/releases.rst`, write out what each unit of work does.
   - There are three categories that the units of work might fall under:
+    - Breaking Changes (only to be added in a major version bump)
     - Bugfixes
     - Features
     - Misc
