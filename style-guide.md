@@ -378,7 +378,7 @@ class Plugin
     self.is_discovery_disabled = disable_discovery
 ```
 
-If the attribute were to be named `disable_discovery` it might be confused for a method.
+If the attribute were to be named `disable_discovery` it might be confused for a method and thus a call to `if self.disable_discovery` would always evaluate *truthy*.
 
 
 ## Function and Method Names
