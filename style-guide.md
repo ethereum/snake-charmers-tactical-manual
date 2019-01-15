@@ -368,6 +368,19 @@ for lockfile_path in lockfile_paths_to_process:
 ```
 
 
+### Booleans
+
+When naming boolean instance attributes, it is often a good idea to use the `is_` prefix.
+
+```python
+class Plugin
+  def __init__(self, disable_discovery: bool) -> None:
+    self.is_discovery_disabled = disable_discovery
+```
+
+If the attribute were to be named `disable_discovery` it might be confused for a method.
+
+
 ## Function and Method Names
 
 
