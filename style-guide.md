@@ -620,3 +620,46 @@ things = create_things()
 
 # res = triple_len(things)
 ```
+
+# Docstrings
+
+## Preferred delimiters
+
+You **should** enclose docstrings with `"""` delimiters.  That is, you **should
+not** enclose docstrings with `'''` delimiters.
+
+## Layout
+
+You **should** lay out docstring content according to the conventions defined
+in [PEP 257](https://www.python.org/dev/peps/pep-0257/) and [PEP
+287](https://www.python.org/dev/peps/pep-0287/).  Where those two PEPs
+conflict, precedence is given to the recommendations of [PEP
+287](https://www.python.org/dev/peps/pep-0287/).
+
+## Exceptions to docstring style PEPs
+
+The aforementioned [PEP 257](https://www.python.org/dev/peps/pep-0257/)
+recommends that a summary of a method's functionality should appear on the
+first line of a docstring immediately following the opening `"""` delimiter.
+Departing from this recommendation, you **should** insert a newline after the
+opening `"""` delimiter and before the beginning of a docstring's content.  For
+example,
+
+```python
+# Do this
+def foo():
+    """
+    Summary of foo's functionality.
+
+    Longer description of foo's functionality.
+    """
+    pass
+
+# Don't do this
+def foo():
+    """Summary of foo's functionality.
+
+    Longer description of foo's functionality.
+    """
+    pass
+```
