@@ -233,7 +233,7 @@ from .helpers import (
 ### Avoid `from x import y` for most standard library imports
 
 For most standard library usage, you should access the necessary
-functions/classes/etc from the module itself.  
+functions/classes/etc from the module itself.
 
 ```python
 # good
@@ -254,9 +254,9 @@ imported on its own, the reader must go find that import to verify that the
 
 Exceptions to this rule:
 
-#### The `abc.abstractmethod` decorator 
+#### The `abc.abstractmethod` decorator
 
-This decorator should be imported directly as it is arguably easier to read 
+This decorator should be imported directly as it is arguably easier to read
 than using it off of the `abc` namespace.
 
 ```python
@@ -264,7 +264,7 @@ class MyClass:
     @abc.abstractmethod  # harder to read
     def my_method(self):
         ...
-        
+
     @abstractmethod  # easier to read
     def my_other_method(self):
         ...
