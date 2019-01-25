@@ -233,7 +233,7 @@ from .helpers import (
 ### Avoid `from x import y` for most standard library imports
 
 For most standard library usage, you should access the necessary
-functions/classes/etc from the module itself.  
+functions/classes/etc from the module itself.
 
 ```python
 # good
@@ -254,9 +254,9 @@ imported on its own, the reader must go find that import to verify that the
 
 Exceptions to this rule:
 
-#### The `abc.abstractmethod` decorator 
+#### The `abc.abstractmethod` decorator
 
-This decorator should be imported directly as it is arguably easier to read 
+This decorator should be imported directly as it is arguably easier to read
 than using it off of the `abc` namespace.
 
 ```python
@@ -264,7 +264,7 @@ class MyClass:
     @abc.abstractmethod  # harder to read
     def my_method(self):
         ...
-        
+
     @abstractmethod  # easier to read
     def my_other_method(self):
         ...
@@ -619,4 +619,47 @@ things = create_things()
 # Type error: Argument 1 to "triple_len" has incompatible type "Iterable[str]"; expected "Sequence[<nothing>]"
 
 # res = triple_len(things)
+```
+
+# Docstrings
+
+## Preferred delimiters
+
+You **should** enclose docstrings with `"""` delimiters.  That is, you **should
+not** enclose docstrings with `'''` delimiters.
+
+## Layout
+
+You **should** lay out docstring content according to the conventions defined
+in [PEP 257](https://www.python.org/dev/peps/pep-0257/) and [PEP
+287](https://www.python.org/dev/peps/pep-0287/).  Where those two PEPs
+conflict, precedence is given to the recommendations of [PEP
+287](https://www.python.org/dev/peps/pep-0287/).
+
+## Exceptions to docstring style PEPs
+
+The aforementioned [PEP 257](https://www.python.org/dev/peps/pep-0257/)
+recommends that a summary of a method's functionality should appear on the
+first line of a docstring immediately following the opening `"""` delimiter.
+Departing from this recommendation, you **should** insert a newline after the
+opening `"""` delimiter and before the beginning of a docstring's content.  For
+example,
+
+```python
+# Do this
+def foo():
+    """
+    Summary of foo's functionality.
+
+    Longer description of foo's functionality.
+    """
+    pass
+
+# Don't do this
+def foo():
+    """Summary of foo's functionality.
+
+    Longer description of foo's functionality.
+    """
+    pass
 ```
