@@ -663,3 +663,37 @@ def foo():
     """
     pass
 ```
+
+# Flow Control
+
+## Explicit else blocks
+
+You **should** prefer to make alternative code paths explicit, even when an early return or raised exception makes it possible to do implicitly. For example, you **should** do this:
+
+```py
+if condition:
+  return True
+else:
+  return False
+```
+
+You **should not** do this:
+
+```py
+if condition:
+  return True
+
+return False
+```
+
+There are some exceptions. One exception is when a conditional short-circuit precedes a significant amount of logic, and is at the beginning of a method. In that case, you **may** choose to drop the explicit `else` block, like:
+
+```py
+def dothing(condition):
+  if not condition:
+    raise Exception('condition must be Truthy')
+  
+  do_a_thing()
+  then_do_more_things()
+  # etc...
+```
