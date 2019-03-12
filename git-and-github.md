@@ -152,3 +152,77 @@ maintained as new practices are adopted. Changes to the
 template are straightforward to merge in to projects that
 are based on it, so global maintenance can be
 propagated easily.
+
+
+## Tips & Tricks
+
+### Developing against locally modified dependencies
+
+Let's assume we have a project A depending on project B. We can often find us in a situation where
+we want to run project A with a modified version of project B. For instance, we might be working
+on upcoming changes for project B and want to test drive them in project A. Or maybe we just want
+to add some extra logging to project B in order to debug some related error that we are seeing in
+project A.
+
+Fortunately, `pip` allows us to add dependencies from any local directory without having actual
+wheel package for it.
+
+Let's assume we have project A and B sitting next to each other in the same directory.
+
+```
+├── project-a
+└── project-b
+```
+
+We can install the local version of project B inside project A as follows:
+
+```
+cd project-a
+pip install -e ../project-b
+```
+
+Internally, this creates a link to `../project-b` so that any changes made to it are immediately
+reflected in project A.
+
+### Pull Request with unreleased external dependencies
+
+Consider we have project A depending on project B. It's a common scenario that we
+are making changes to project B that will require project A to adapt to it (a "breaking change").
+While the changes to project B may still be under review and therefore unreleased, it can be
+valuable to open a PR against project A to show the migration path for these upcoming changes.
+
+For us to be able to already use the new, unreleased version, we can set the dependency version of
+package B to a temporary tag, commit or branch on GitHub. This ensures the PR can do a proper CI
+run against the upcoming changes, allowing it to reveal potential problems that otherwise may
+go unnoticed.
+
+We can use the following syntax to specify a dependency directly from GitHub without creating an
+actual package for it.
+
+```
+"package-name@git+https://github.com/owner/repository.git@tag"
+```
+
+Let's assume package B is called `lahja` and the `setup.py` file normally specifies the version in
+the `install_requires` or `extras_requires` section as follows.
+
+```
+...
+"web3==4.4.1",
+"lahja==0.11.2",
+"termcolor>=1.1.0,<2.0.0",
+...
+```
+
+For the purpose of the PR, we can specify a temporary version such as.
+
+```
+...
+"web3==4.4.1",
+"lahja@git+https://github.com/cburgdorf/lahja-1.git@christoph/perf/filter-predicate"
+"termcolor>=1.1.0,<2.0.0",
+...
+```
+
+During the lifecycle of the PR the dependency version should be changed to the proper
+version of the package as soon as a released version exists.
