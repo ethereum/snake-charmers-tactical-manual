@@ -15,8 +15,55 @@ as well as always iterating on our testing infrastructure.
 
 ## Testing Framework
 
-[`py.test`](https://docs.pytest.org/en/latest/) is the default framework we use
+[`pytest`](https://docs.pytest.org/en/latest/) is the default framework we use
 for testing.
+
+
+## Test Suite Structure
+
+### Test Module Naming/Organization
+
+Where possible, test suites should mirror the module structure of their
+corresponding package.  For example, the
+[`eth-abi`](https://github.com/ethereum/eth-abi) package has a submodule called
+[`eth_abi.grammar`](https://github.com/ethereum/eth-abi/blob/master/eth_abi/grammar.py).
+Accordingly, it has a testing module called
+[`tests.grammar`](https://github.com/ethereum/eth-abi/blob/master/tests/grammar.py)
+that contains testing routines for resources provided by the `eth_abi.grammar`
+module.
+
+Test suites may also include a `tests.end_to_end` module that defines
+functional testing of a package's public API.  This might include common tasks
+performed with a package that compose different individual components of that
+package.
+
+### Test Case Naming
+
+Test case names should adhere to the following format where possible:
+
+```
+def test_<function or class name>_<short description of functionality being tested>:
+    ...
+```
+
+For example, test cases for a function called `foo` might be named as follows:
+
+```python
+def test_foo_does_kung_fu():
+    kung_fu = foo()
+
+def test_foo_raises_value_error():
+    with pytest.raises(ValueError):
+        foo(...)
+
+...
+```
+
+> **Note:** At the time of writing this section on test suite structure, many
+> ethereum python packages do not follow all of these guidelines.  Therefore,
+> this section is meant to describe the desired test suite structure for future
+> packages and is also meant to inform refactoring efforts for existing
+> packages.
 
 
 ## Using Mocks
@@ -29,7 +76,7 @@ considered an anti-pattern.
 
 Because:
 
-- Mock based tests tend to test the implementation and not the feature functionality 
+- Mock based tests tend to test the implementation and not the feature functionality
 - It is very easy to have mock-based tests pass, when the actual code fails
 - Mocking can be leaky if not done correctly: leaving objects monkey-patched after test cleanup, etc.
 
