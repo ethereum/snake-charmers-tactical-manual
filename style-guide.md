@@ -569,6 +569,45 @@ def long_signature(
     pass
 ```
 
+## Only use bare `else` block for validating unexpected values
+
+**Instead of** doing this:
+```py
+if direction == 'north':
+  print('N')
+elif direction == 'south':
+  print('S')
+elif direction == 'west':
+  print('W')
+else:
+  print('E')
+```
+
+Prefer to use explicit `elif` blocks and a "validation" `else` block
+
+```py
+if direction == 'north':
+  print('N')
+elif direction == 'south':
+  print('S')
+elif direction == 'west':
+  print('W')  
+elif direction == 'east':
+  print('E')
+else:
+  raise ValidationError(f"unrecognized direction {direction}")
+```
+
+One of the critical reasons to prefer this latter approach is to identify errors early. Even very simple-looking "switches" like the above can be buggy. Here's an example:
+https://github.com/ethereum/eth-account/pull/57/files#diff-56b414627669bfd488bd7d6313c1b7ceR62
+This above tests were passing, despite not testing 2/3 of the intended code paths.
+
+It's not so important to find the bug. What's more important is that we prevent this whole class of errors by using an else block for validation. If you must know about the specific bug above, click for explanation below:
+<details>
+  <summary>Click for bug spoiler</summary>
+  When parameterizing pytest fixtures, the parameter is placed in `request.param` (not `request`). So the else block was *always* being triggered, and the first two paths were never running.
+</details>
+
 # Typing
 
 Since all new code is required to come with type hints ([PEP 484](https://www.python.org/dev/peps/pep-0484/)), the following aims to provide answers to some common questions around working with types and `mypy`.
