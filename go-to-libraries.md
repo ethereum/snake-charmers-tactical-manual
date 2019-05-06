@@ -37,3 +37,9 @@ library doesn't appear to be very well maintained or documented and there are
 places where the documentation doesn't match the library or the library doesn't
 behave in documented ways.  Expect to end up reading the code some if you
 choose this for anything very complex.
+
+### [`cached-property`](https://pypi.org/project/cached-property/)
+
+@piper
+
+For `@property` methods that are safe to cache this provides a clean, well tested, and highly performant mechanism.
