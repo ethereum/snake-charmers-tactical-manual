@@ -204,54 +204,54 @@ it does not cover all the essential aspects of the entire documentation spectrum
 
 Often, a narrative style documentation that walks the user through specific use cases is more user
 friendly. This is especially true for those who are not yet familiar with the software and
-therefore lack a good feel for possibly existing APIs. 
+lack a good feel for existing APIs.
 
 ##### Narrative Perspective
 
 Each narrative is written from a particular point of view and it is important to remain consistent
 in its use.
 
-There are two main styles of writing that are generaly used for technical documentation and there
+There are two main styles of writing that are generally used for technical documentation and there
 really is no *right* or *wrong* when it comes to picking one over the other.
 
-Here are two very prominent examples:
+Here are two prominent examples:
 
-*React choose to use Second-person "You" form*
+*React uses second-person "you" form*
 
 ![image](https://user-images.githubusercontent.com/521109/48718244-47f04180-ec1b-11e8-9978-85173b4e78e3.png)
 
-*Rust choose to use First-person "We" form*
+*Rust uses first-person "we" form*
 
 ![image](https://user-images.githubusercontent.com/521109/48718325-70783b80-ec1b-11e8-8665-dd892edc1a51.png)
 
-One might argue that the *Second-person "You" form* is more casual as it directly speaks to the
-reader whereas the *First-person "We" form* is more formal and more popular among scientic writing.
+The *second-person "you" form* is more casual as it directly speaks to the reader whereas the
+*first-person "we" form* is more formal and more popular in scientific writing.
 
-We use the *First-person "We" form* only.
+We use the *first-person "we" form* only.
 
 Examples:
 
 **Correct**
-> We can send the transaction after we signed it.
+> We can send the transaction after we sign it.
 
 **Wrong**
 
-> You can send the transaction after you signed it.
+> You can send the transaction after you sign it.
 
 **Wrong**
 
-> I can send the transaction after I signed it.
+> I can send the transaction after I sign it.
 
 ##### Writing problem driven
 
 It's tempting to write guides that drop the user right within a solution that highlights exciting
 features. While this may make a lot of sense for the writer, often readers will find themselves
-wondering: "Wait!? **Why** are we doing this in the first place?"
+wondering: "Wait! **Why** are we doing this in the first place?"
 
 Therefore, it's a good idea for guides to be written in a *problem-driven* manner whenever possible.
-We want the the reader to first understand **why** they want to read the piece that they are about
-to dive in. What is the problem that we will learn how to fix or what are the possible use cases
-for the features that we are about to learn.
+We want the reader to first understand **why** they want to read a section of documentation. What is
+the problem that we will learn how to fix or what are the possible use cases for the features that
+we are about to learn?
 
 
 #### Cookbook
