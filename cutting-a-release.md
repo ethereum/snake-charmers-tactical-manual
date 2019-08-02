@@ -7,13 +7,15 @@ Steps:
 - [ ] Merge any outstanding PRs that are ready.
 - [ ] Double check that the tests ran (and passed) on the merged commit(s).
 - [ ] Pull down the branch that you'll cut the release from locally.
+- [ ] Make sure the dev dependencies are installed in your virtual environment. It may also be necessary to manually install the dependencies listed under the `setup_requires` keyword argument.
 - [ ] Make release notes before bumping the version number:
   - Look at the commits between the last version bump and the current one. Following the template already laid out in `docs/releases.rst`, write out what each unit of work does.
-  - There are three categories that the units of work might fall under:
+  - There are five categories that the units of work might fall under:
     - Breaking Changes (only to be added in a major version bump)
     - Bugfixes
     - Features
     - Misc
+    - Docs
 - [ ] Run `$ make docs` to view the release notes locally. Make sure everything looks like it should.
 - [ ] Once the docs look good, commit the changes.
 - [ ] Push the doc changes to master.
