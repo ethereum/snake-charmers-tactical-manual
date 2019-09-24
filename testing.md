@@ -39,6 +39,58 @@ In many cases, if you find yourself needing to mock objects in order to write
 your tests, this is a signal that your code may need to be refactored to make
 functionality more modular and easier to test in isolation.
 
+### How to refactor an implementation to avoid mocking
+
+Consider the following steps when looking at your implementation if it seems the only easy way to test some function's logic is via mocking:
+
+1. Prefer small, pure functions. They are easier to test if they just do one thing and only require the minimum amount of stuff required to do their job. Stateful inputs are harder to test as you have to recreate the context before you can see the effect of the routine on your parameters.
+2. If (1) is not enough to expose just the functionality you want to test, you can introduce a function beyond what you may normally think is helpful to isolate the functionality you want to test.
+
+An example:
+
+```python
+def foo(bar):
+    baz = load_baz_from(bar)
+    for i in range(ROUND_COUNT):
+        some_value = compute_quux_given(i)
+        quux = compute_quux_for(baz, some_value)
+    return quux
+```
+
+We have a function `foo` that computes a value based on an input `bar` by executing an auxillary routine for some number of rounds `ROUND_COUNT`. To test the auxillary routine (here the body of the `for` loop), we can extract it from `foo`.
+
+```python
+def _compute_quux(baz, i):
+    some_value = compute_quux_given(i)
+    return compute_quux_for(baz, some_value)
+
+def foo(bar):
+    baz = load_baz_from(bar)
+    for i in range(ROUND_COUNT):
+        quux = _compute_quux(baz, i)
+    return quux
+```
+
+We can now test `_compute_quux` independently of `foo` even if it didn't seem useful to pull out this inner function when writing the first implementation. Note we prefix the inner function with a `_` primarily to indicate that this function is "private" to the module it is defined in.
+
+3. If (2) is not enough to get at the functionality you want to test, you can also refactor so that the explicit behavior you want to check is a parameter to the function. A default argument can be supplied so that callers of the function have no additional burden but the option to customize the function is still available in a testing context.
+
+```python
+def foo(bar, quux_provider=_compute_quux):
+    baz = load_baz_from(bar)
+    for i in range(ROUND_COUNT):
+        quux = quux_provider(baz, i)
+    return quux
+
+# at the call site:
+the_thing = foo(bar)
+
+# during testing:
+constant_quux_provider = lambda _*: 2
+the_thing = foo(bar, quux_provider=constant_quux_provider)
+assert the_thing == the_expected_thing
+```
+
 ### When all else fails
 
 Mocks **can** be ok when all other options are exhausted, or it is the pragmatic solution, or some other reason to ignore the bad things.
