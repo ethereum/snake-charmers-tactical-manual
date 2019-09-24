@@ -409,9 +409,9 @@ from enum.signature_enum import SignatureEnum
 
 from datastructures.header_helpers import HeaderCounter
 
-s = SignatureEnum.some_application_domain()
-h = HeaderCounter()
-# use s an h...
+signature_domain = SignatureEnum.some_application_domain()
+header_counter = HeaderCounter()
+# use signature_domain and header_counter...
 
 
 
@@ -419,9 +419,9 @@ h = HeaderCounter()
 from signatures.domains import SignatureDomain
 from headers.counter import HeaderCounter
 
-s = SignatureDomain.for_some_application()
-h = HeaderCounter()
-# use s an h...
+signature_domain = SignatureDomain.for_some_application()
+header_counter = HeaderCounter()
+# use signature_domain and header_counter...
 ```
 
 This guideline tends to lend higher semantic value to a given name so that it plugs into the surrounding conceptual framework of the codebase. In the second example, we stick to the domain of this application with an enumeration for "signature domains" and some utility to help count "headers". The relevant concepts are those at the level of the application.  This contrasts with the first example that withholds this context and instead communicates lower-level implementation details (e.g. the fact that we have an ``enum`` implementation of the set of domains or that `HeaderCounter` belongs in package that bundles together what we may consider `data structures`.)
