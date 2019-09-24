@@ -395,6 +395,36 @@ do).
 * `compute_` **should** be used for cases where something is being computed.
 * `fetch_` **should** be used for retrievals that are external, such as via an HTTP request, or other IO.
 
+## General comments on naming
+
+Strive to choose names that clearly communicate intent; you want to essentially use the "smallest" concept you can while still transmitting the relevant information to future readers (including yourself).
+
+Of particular importance is naming things based on what they provide, not what they do or details of how they do it. First an example, then further rationale:
+
+```python
+# bad
+## implies a package name of `enum` that doesn't tell
+## the consumer of a codebase much about what is inside.
+from enum.signature_enum import SignatureEnum
+
+from datastructures.header_helpers import HeaderCounter
+
+signature_domain = SignatureEnum.some_application_domain()
+header_counter = HeaderCounter()
+# use signature_domain and header_counter...
+
+
+
+# better
+from signatures.domains import SignatureDomain
+from headers.counter import HeaderCounter
+
+signature_domain = SignatureDomain.for_some_application()
+header_counter = HeaderCounter()
+# use signature_domain and header_counter...
+```
+
+This guideline tends to lend higher semantic value to a given name so that it plugs into the surrounding conceptual framework of the codebase. In the second example, we stick to the domain of this application with an enumeration for "signature domains" and some utility to help count "headers". The relevant concepts are those at the level of the application.  This contrasts with the first example that withholds this context and instead communicates lower-level implementation details (e.g. the fact that we have an ``enum`` implementation of the set of domains or that `HeaderCounter` belongs in package that bundles together what we may consider `data structures`.)
 
 ## Multi-line statements
 
