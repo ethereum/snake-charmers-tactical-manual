@@ -8,6 +8,8 @@ A key benefit of using the template is that we can easily propagate best practic
 
 Basically, just clone the template repo and start any new repo with that clone.
 
+*NOTE: we do **not** squash the history when cloning. In order to easily pull in later updates from the repo, we need the full template history.*
+
 TODO: step-by-step instructions
 
 ## Upgrading a repo to use the latest templated features
