@@ -58,6 +58,8 @@ Here's a collection of things.
 
 ## Friendly Code Review
 
+### Avoid negative attribution
+
 When reviewing people's code consider the following two comments.
 
 > I don't like the name of this function.
@@ -68,3 +70,20 @@ vs.
 
 Your feedback will often be better received if you pose it in the form of a
 question.
+
+
+### Keep it objective
+
+Similarly, consider whether your statement is objective or subjective.
+
+> This variable name is bad.
+
+vs
+
+> This variable name is imprecise.
+
+The later is closer to a statement of *fact* where as the former is a
+subjective opinion.  The discussion sparked by the first will likely end up
+being an argument about two differing opinions, where-as we can have an
+objective discussion about the later since it captures a more
+objective/debatable issue.

@@ -4,6 +4,21 @@ This is the location for opinionated write-ups of different python libraries to
 accomplish certain tasks.
 
 
+## `async`
+
+### [trio](https://github.com/python-trio/trio)
+
+@piper recommends
+
+This is the best alternative to the built-in standard library `asyncio`.
+
+
+### [asks](https://github.com/theelous3/asks)
+
+Like [`requests`](https://2.python-requests.org/en/master/) but `async` and built on `trio`
+
+
+
 ## Grammar Parsing
 
 ### [Parsimonious](https://github.com/erikrose/parsimonious)
