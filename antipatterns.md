@@ -146,7 +146,7 @@ class User:
         ...
 ```
 
-A common pattern for doing validatino is to use `assert` statements.  We choose
+A common pattern for doing validation is to use `assert` statements.  We choose
 to use explicit exception raising due to how easy it is to run the python
 interpreter with assertions disabled.
 
