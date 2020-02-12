@@ -5,7 +5,12 @@ Python development team.
 
 
 * [Code Style Guide](./style-guide.md)
+* [Code Idioms](./idioms.md)
+* [Naming Things](./naming-things.md)
+* [Antipatterns](./antipatterns.md)
+* [Mutability](./mutability.md)
 * [Testing](./testing.md)
+* [Organizing Library Code](./organizing-code.md)
 * [Git and Github](./git-and-github.md)
 * [Documentation](./documentation.md)
 * [Operational Security](./opsec.md)
