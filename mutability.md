@@ -79,7 +79,8 @@ def get_things(all_items):
 ```
 
 The `get_things` function above will produce a generator which can be a
-*foot-gun*.  You can either use the
+*foot-gun*. eg~ if you try to iterate the result twice, it will be empty on the 2nd round.
+You can either use the
 [`eth_utils.to_tuple`](https://eth-utils.readthedocs.io/en/latest/utilities.html#to-tuple-callable-callable-tuple)
 decorator or a thin wrapper pattern to force the generator to evaluate like this.
 
