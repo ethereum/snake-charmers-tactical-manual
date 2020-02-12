@@ -38,7 +38,9 @@ for key, value in thing.items():
 
 ### Confusing Plurals
 
-For short names, the simple plural form is preferred.
+For short names, the simple plural form *can* be ok but if often visually
+confusing, making it easy to inadvertantly swap one of the variables for
+another.
 
 ```python
 for user in users:
@@ -46,7 +48,8 @@ for user in users:
 ```
 
 
-For longer names, avoid using plural names that only differ by one letter.
+For longer names, avoid using plural names that only differ by one letter since
+they often much 
 
 ```python
 for lockfile_path in lockfile_paths:
