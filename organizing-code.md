@@ -74,4 +74,5 @@ library but may be useful to end users, as well as functionality that is only
 used for things like the test suite.
 
 The convention is that you **may not** import things from `library.tools`
-anywhere in the rest of the library code.
+anywhere in the rest of the library code. Although, it is
+acceptable and common to import `tools` in order to set up tests.
