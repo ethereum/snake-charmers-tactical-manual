@@ -62,3 +62,14 @@ and highly performant mechanism.  Use of this however collides with the `__slots
 approach.
 
 > NOTE: https://github.com/pydanny/cached-property/issues/69 demonstrates how to combine this with `__slots__`.
+
+
+## Sorted Containers
+
+You mostly don't need sorted sets or dicts or lists. Then someday you really do.
+
+### `sortedcontainers` [docs](http://www.grantjenks.com/docs/sortedcontainers/index.html) and [code](https://github.com/grantjenks/python-sortedcontainers)
+
+@carver recommends
+
+This has the best docs of the bunch, top performance, a pure python implementation, and great APIs.
