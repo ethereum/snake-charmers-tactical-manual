@@ -33,7 +33,7 @@ documentation.
 Code examples can be written using `.. doctest::` code blocks to ensure they are executed as
 regular code during the `doctest` CI run.
 
-Examples that use this feature are effectively strucured as if they were written in an interactive
+Examples that use this feature are effectively structured as if they were written in an interactive
 Python session.
 
 Example:
@@ -50,7 +50,7 @@ Example:
 #### `literalinclude` code examples
 
 Sometimes, writing code examples using only the `.. doctest::` directive can feel a bit limiting
-and effecively clash with other desired properties of the example (e.g. order, brevity). There's
+and effectively clash with other desired properties of the example (e.g. order, brevity). There's
 another effective way to guarantee examples in the documentation continue to work as the
 underlying software evolves.
 
@@ -115,7 +115,7 @@ in the side navigation as well as in the introduction to be exposed more promine
 
 #### Release Notes
 
-The release notes inform the reader about the progress of the project. They are continously
+The release notes inform the reader about the progress of the project. They are continuously
 written as new releases are published.
 
 ### Fundamentals
