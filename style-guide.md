@@ -309,6 +309,22 @@ from ..helpers import (  # should instead use absolute import path.
 ```
 
 
+## Raising Exceptions
+
+When using the ```raise NewException() from exc``` form, the new exception must have a message
+passed to its constructor, otherwise when it is stringified (e.g when it is logged), we get an
+empty string. In most cases we can reuse the message (and other arguments passed to the original
+exception) with the following:
+
+```
+try:
+    ...
+except SomeException as exc:
+    ...
+    raise NewException(*exc.args) from exc
+```
+
+
 ## Multi-line statements
 
 We have traditionally avoided use of forward slash style multi-line statements.
