@@ -131,6 +131,10 @@ github inbox spam.
 
 Everyone is free to review any pull request.
 
+Recommended Reading:
+
+ - [How to Do Code Reviews Like a Human](https://mtlynch.io/human-code-reviews-1/)
+
 
 ## Merging
 
