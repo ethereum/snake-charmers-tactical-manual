@@ -139,3 +139,33 @@ git push --set-upstream origin upgrade-template
 ```
 
 Open the PR, resolve and issues, and merge. **Then you're done!**
+
+## Configure an existing repo to use the template
+
+Sometimes we have existing repos that are close to the template, but were never actually derived from the same git history. These are the steps to merge the git histories. This provides the benefit that it's much easier to pull in all the upgrades in the template at a later time.
+
+### Fetch the template repo
+
+```sh
+git remote add tmpl git@github.com:ethereum/ethereum-python-project-template.git
+get fetch tmpl
+```
+
+Check out the template on a local branch:
+```sh
+git checkout -b template tmpl/master
+```
+
+### Merge in the template
+
+We want to force a merge, even though the repositories have no shared history.
+```sh
+git checkout -b join-to-template master
+git merge --allow-unrelated-histories template
+```
+
+### Resolve conflicts
+
+Yeah, no way around it. This will probably take a while. There's no handbook to follow here, you just have to figure it out patch by patch.
+
+After committing the merge, don't forget to re-fill the template variables. See the section above called "Fill any added template variables"
