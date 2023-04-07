@@ -118,12 +118,12 @@ $ cat .project-template/template_vars.txt
 
 If the variables are already fully filled, then run
 ```sh
-.project-template/refill_template_vars.sh
+python .project-template/refill_template_vars.py
 ```
 
 If not, run:
 ```sh
-.project-template/fill_template_vars.sh
+python .project-template/fill_template_vars.py
 ```
 
 Answer any questions that you're prompted with.
