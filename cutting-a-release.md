@@ -38,6 +38,7 @@ Steps:
   - Troubleshooting:
     - If something goes wrong in the middle, you'll need to figure out what went wrong and fix that problem
     - Open up the Makefile, and run the failed command and all subsequent commands manually
+    - If the problem persists, you may be able to skip the command and run the subsequent commands manually
 - [ ] Test it!
   - Create and activate a new virtualenv
   - `$ pip install -U <released_project>`
