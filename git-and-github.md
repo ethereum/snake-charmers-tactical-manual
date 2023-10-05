@@ -88,7 +88,7 @@ The *correct* phrasing of a commit message.
 - `fixes bug #1234` (wrong)
 - `fixing bug #1234` (wrong)
 
-One way to test if you have it write is to complete the following sentence.
+One way to test if you have it right is to complete the following sentence.
 
 > If you apply this commit it will ________________.
 
@@ -139,6 +139,12 @@ Recommended Reading:
 ## Merging
 
 Once your pull request has been *Approved* it may be merged at your discretion.  In most cases responsibility for merging is left to the person who opened the pull request, however for simple pull requests it is fine for anyone to merge.
+
+When merging, please avoid the `Create a merge commit` option as this may have undesired outcomes by having each commit on the main branch. Ideally, the commits have been cleaned up, following best practices outlined in [Commit Hygiene](#commit-hygiene) above.
+
+> Use `Squash and merge` if you want to combine all your commits into a single commit on the main branch. Make sure you have rebased your branch prior to choosing this option.
+
+> Use `Rebase and merge` if you want to keep the commits and ensure it is applied starting from HEAD of the main branch.
 
 If substantive changes are made **after** the pull request has been marked *Approved* you should ask for an additional round of review.
 
