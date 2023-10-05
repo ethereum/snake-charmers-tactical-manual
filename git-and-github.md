@@ -142,7 +142,7 @@ Once your pull request has been *Approved* it may be merged at your discretion. 
 
 When merging, please avoid the `Create a merge commit` option as this may have undesired outcomes by having each commit on the main branch. Ideally, the commits have been cleaned up, following best practices outlined in [Commit Hygiene](#commit-hygiene) above.
 
-> Use `Squash and merge` if you want to combine all your commits  into a single commit on the main branch. Make sure you have rebased your branch prior to choosing this option.
+> Use `Squash and merge` if you want to combine all your commits into a single commit on the main branch. Make sure you have rebased your branch prior to choosing this option.
 
 > Use `Rebase and merge` if you want to keep the commits and ensure it is applied starting from HEAD of the main branch.
 
