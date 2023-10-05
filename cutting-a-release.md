@@ -14,7 +14,7 @@ A release of a library requires a version bump, compiling release notes, and pub
 
 ### Releasing with Semver
 
-We use [Semantic Versioning](https://semver.org/) for all of our libraries. Decide which bump applies (major, minor, or patch) to the changes that will be relased. Here's a quick cheat sheet:
+We use [Semantic Versioning](https://semver.org/) for all of our libraries. Decide which bump applies (major, minor, or patch) to the changes that will be released. Here's a quick cheat sheet:
   - Use a `major` version bump when you make incompatible API changes
   - Use a `minor` version bump when you add functionality in a backwards-compatible manner
   - Use a `patch` version bump when you make backwards-compatible bug fixes
@@ -29,13 +29,13 @@ Follow the sections below to release with the desired version.
 ### Steps
 
   1. From your local copy of the lib's repository, check out and pull the latest from the main branch.
-  1. Activate your virtual environment and run `python -m pip install -e ".[dev]"` to ensure the latest dev dependencies are installed.
+  2. Activate your virtual environment and run `python -m pip install -e ".[dev]"` to ensure the latest dev dependencies are installed.
       * It may be necessary to manually install dependencies listed under the `setup_requires` keyword.
-  1. Verify documentation and release notes
+  3. Verify documentation and release notes
       * Run `make docs` to preview and verify the docs pages.
       * Run `towncrier build --draft` to verify the release notes.
-  1. Generate release notes with `make notes bump=<major,minor,patch>`.
-  1. The remaining steps are run via `make release bump=<major,minor,patch>` command. This will typically build the docs, bump the version, push the tags to GitHub, and build and publish the package to PyPI.
+  4. Generate release notes with `make notes bump=<major,minor,patch>`.
+  5. The remaining steps are run via `make release bump=<major,minor,patch>` command. This will typically build the docs, bump the version, push the tags to GitHub, and build and publish the package to PyPI.
 
 If any of the commands fail, make sure the release is performed to completion. Once you have resolved the issue, run the remaining commands manually and verify the package is available.
 
@@ -63,7 +63,7 @@ If the release was for a user-facing library, announce the latest version in the
 **A:** In this case, the release notes must be created manually. The following steps outline this process:
 
 1. Modify the release notes in `docs/releases.rst` to add a section for the new version.
-1. Create subsections to categorize each of the changes that were made.
+2. Create subsections to categorize each of the changes that were made.
 
     ### Subsections/Categories
     - Breaking Changes (only to be added in a major version bump)
@@ -76,6 +76,6 @@ If the release was for a user-facing library, announce the latest version in the
     - Performance
     - Removal (only to be added in a major version bump)
 
-1. Verify documentation and release notes
+3. Verify documentation and release notes
     * Run `make docs` to preview and verify the docs pages.
-1. Commit the changes to the main branch and push to the upstream repo with `git push upstream`.
+4. Commit the changes to the main branch and push to the upstream repo with `git push upstream`.
