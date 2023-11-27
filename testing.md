@@ -26,9 +26,9 @@ for testing.
 Where possible, test suites should mirror the module structure of their
 corresponding package.  For example, the
 [`eth-abi`](https://github.com/ethereum/eth-abi) package has a submodule called
-[`eth_abi.grammar`](https://github.com/ethereum/eth-abi/blob/master/eth_abi/grammar.py).
+[`eth_abi.grammar`](https://github.com/ethereum/eth-abi/blob/main/eth_abi/grammar.py).
 Accordingly, it has a testing module called
-[`tests.grammar`](https://github.com/ethereum/eth-abi/blob/master/tests/grammar.py)
+[`tests.grammar`](https://github.com/ethereum/eth-abi/blob/main/tests/grammar.py)
 that contains testing routines for resources provided by the `eth_abi.grammar`
 module.
 
