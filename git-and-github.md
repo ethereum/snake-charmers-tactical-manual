@@ -66,7 +66,7 @@ This means that each commit contains one logical change to the code.  For exampl
 - commit `C` modifies the configuration for CI.
 
 This approach is sometimes easier to do *after* all of the code has been
-written.  Once things are complete, you can `git reset master` to unstage all
+written.  Once things are complete, you can `git reset main` to unstage all
 of the changes you've made, and then re-commit them in small chunks using `git
 add -p`.
 

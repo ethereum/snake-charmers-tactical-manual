@@ -50,11 +50,11 @@ In this case, add the template as a remote this way:
 git remote add template-host git@github.com:ethereum/ethereum-python-project-template.git
 ```
 
-Then check out the master of the template repo as a local branch called `template`:
+Then check out the main of the template repo as a local branch called `template`:
 
 ```sh
 git fetch template-host
-git checkout --track -b template template-host/master
+git checkout --track -b template template-host/main
 ```
 
 ### Pull in the latest template changes
@@ -69,7 +69,7 @@ git pull
 #### Create a template upgrade feature branch
 
 ```sh
-git checkout master
+git checkout main
 git pull
 git checkout -b upgrade-template
 ```
@@ -153,14 +153,14 @@ get fetch tmpl
 
 Check out the template on a local branch:
 ```sh
-git checkout -b template tmpl/master
+git checkout -b template tmpl/main
 ```
 
 ### Merge in the template
 
 We want to force a merge, even though the repositories have no shared history.
 ```sh
-git checkout -b join-to-template master
+git checkout -b join-to-template main
 git merge --allow-unrelated-histories template
 ```
 
