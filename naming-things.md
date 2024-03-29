@@ -201,3 +201,19 @@ $ greet -n piper
 # no
 $ greet --n piper
 ```
+
+## YAML/YML Files
+
+The official rule from the [YAML](www.yaml.org) people is that files should end in `.yaml`.
+In practice, this is not the case. At the time of writing, the following rules apply:
+
+### Use .yml
+
+- Files within the `.github` folder
+  - Technically, the templates will work with `.yaml` too, but the `config.yml` does not.
+- `.circleci/config.yml`
+
+### Use .yaml
+
+- `.pre-commit-config.yaml`
+- `.readthedocs.yaml`
