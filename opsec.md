@@ -11,7 +11,7 @@ The following minimum security practices should be used.
     accounts against hijacking.  In some cases, simply knowing someone's mobile
     number and appearing in person at one of their carrier's stores is enough
     to hijack their account.  Accounts can also be socially hacked by knowing
-    the mobile number in addition to a few publically available details of the
+    the mobile number in addition to a few publicly available details of the
     account holder's life which are commonly used in account recovery processes
     (father's middle name, mother's maiden name, model of first car, etc.).
 - Setup auto-signing of your git commits

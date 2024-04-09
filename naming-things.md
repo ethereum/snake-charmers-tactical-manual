@@ -39,7 +39,7 @@ for key, value in thing.items():
 ### Confusing Plurals
 
 For short names, the simple plural form *can* be ok but if often visually
-confusing, making it easy to inadvertantly swap one of the variables for
+confusing, making it easy to inadvertently swap one of the variables for
 another.
 
 ```python
