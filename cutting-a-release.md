@@ -7,10 +7,12 @@ Releases should be considered for each change that is merged to the main branch.
 
 The team should review any outstanding PRs and recent merges at the weekly sync. If there are any newsfragments in the main branch there is a good chance a release is needed.
 
+See the Best Practices For Major Version Changes section below for more details on things to consider for a major version bump.
+
 How to cut a new release
 ====
 
-A release of a library requires a version bump, compiling release notes, and publishing to PyPI.
+A release of a library requires a version bump, compiling release notes, building the package, and publishing to PyPI.
 
 ### Releasing with Semver
 
@@ -23,12 +25,13 @@ Follow the sections below to release with the desired version.
 
 ### Requirements
 
-  1. Changes are merged in the main branch
-  2. The latest build on the main branch was successful
+  1. Changes are merged in the main or version branch
+  1. The latest build on the main or version branch was successful
+  1. Team buy-in: You'll need to get approval from at least two team members before a release. They'll want to know what lib you're releasing, what is in the release.
 
 ### Steps
 
-  1. From your local copy of the lib's repository, check out and pull the latest from the main branch.
+  1. From your local copy of the lib's repository, check out and pull the latest from the main or version branch.
   2. Activate your virtual environment and run `python -m pip install -e ".[dev]"` to ensure the latest dev dependencies are installed.
       * It may be necessary to manually install dependencies listed under the `setup_requires` keyword.
   3. Verify documentation and release notes
@@ -79,3 +82,9 @@ If the release was for a user-facing library, announce the latest version in the
 3. Verify documentation and release notes
     * Run `make docs` to preview and verify the docs pages.
 4. Commit the changes to the main branch and push to the upstream repo with `git push upstream`.
+
+## Best Practices for Major Version Changes (or, Things Learned Through Experience)
+
+- Although it's not always possible, try to batch up breaking changes within a library. For example, if you're going to release a major version of a lib, try and get any other low-hanging fruit and/or prioritized breaking changes in at the same time.
+- Utilize beta versions. If there is a big breaking change going in, or multiple big breaking changes going in, consider releasing a beta version or two.
+- We prefer to have breaking changes that cascade across libs queued up at the same time so that we can release affected libs in concert. This cuts down on thrash and dependency hell for both ourselves and users.
