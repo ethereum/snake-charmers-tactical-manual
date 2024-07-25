@@ -53,6 +53,7 @@ If any of the commands fail, make sure the release is performed to completion. O
 
 If the release was for a user-facing library, announce the latest version in the [web3py Discord channel](https://discord.com/channels/809793915578089484/817614427490615307). Typically this announcement includes a link to the release notes. :tada:
 
+It is also helpful to put a blurb into the ``#pending-announcements`` channel in the Snake Charmers internal Discord to help advertise what got changed.
 
 
 ## Release FAQ
