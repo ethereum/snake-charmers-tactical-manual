@@ -32,13 +32,14 @@ Follow the sections below to release with the desired version.
 ### Steps
 
   1. From your local copy of the lib's repository, check out and pull the latest from the main or version branch.
-  2. Activate your virtual environment and run `python -m pip install -e ".[dev]"` to ensure the latest dev dependencies are installed.
+  1. Activate your virtual environment and run `python -m pip install -e ".[dev]"` to ensure the latest dev dependencies are installed.
       * It may be necessary to manually install dependencies listed under the `setup_requires` keyword.
-  3. Verify documentation and release notes
+  1. Verify documentation and release notes
       * Run `make docs` to preview and verify the docs pages.
       * Run `towncrier build --draft` to verify the release notes.
-  4. Generate release notes with `make notes bump=<major,minor,patch>`.
-  5. The remaining steps are run via `make release bump=<major,minor,patch>` command. This will typically build the docs, bump the version, push the tags to GitHub, and build and publish the package to PyPI.
+  1. If you are issuing a release for a major version, check out the [Best Practices for Major Version Changes](#major-release) below.
+  1. Generate release notes with `make notes bump=<major,minor,patch>`.
+  1. The remaining steps are run via `make release bump=<major,minor,patch>` command. This will typically build the docs, bump the version, push the tags to GitHub, and build and publish the package to PyPI.
 
 If any of the commands fail, make sure the release is performed to completion. Once you have resolved the issue, run the remaining commands manually and verify the package is available.
 
@@ -46,7 +47,7 @@ If any of the commands fail, make sure the release is performed to completion. O
 
 1. Make sure to install the new version and confirm everything is working.
     * Create and activate a new virtualenv, then run `$ pip install -U <released_project>`
-2. Check the latest documentation is published on ReadTheDocs.
+1. Check the latest documentation is published on ReadTheDocs.
     * Also check the ReadTheDocs build succeeded at `https://<project name>.readthedocs.io/en/stable/releases.html`
 
 ### New Version Announcement
@@ -84,8 +85,10 @@ It is also helpful to put a blurb into the ``#pending-announcements`` channel in
     * Run `make docs` to preview and verify the docs pages.
 4. Commit the changes to the main branch and push to the upstream repo with `git push upstream`.
 
-## Best Practices for Major Version Changes (or, Things Learned Through Experience)
+## Best Practices for Major Version Changes (or, Things Learned Through Experience) <a name='major-release'>🔗</a>
 
 - Although it's not always possible, try to batch up breaking changes within a library. For example, if you're going to release a major version of a lib, try and get any other low-hanging fruit and/or prioritized breaking changes in at the same time.
 - Utilize beta versions. If there is a big breaking change going in, or multiple big breaking changes going in, consider releasing a beta version or two.
-- We prefer to have breaking changes that cascade across libs queued up at the same time so that we can release affected libs in concert. This cuts down on thrash and dependency hell for both ourselves and users.
+- If you know a change will be breaking in a downstream library, add an upper pin to the dependency requirement in said downstream library while the PR is open in the upstream library.
+- We prefer to have breaking changes that cascade across libraries queued up at the same time so that we can release affected libraries in concert. This cuts down on thrash and dependency hell for both ourselves and users.
+- Before moving from beta to stable, take one last look at the changes, and consider adding an upper pin of that dependency to any downstream libraries that may be affected.
