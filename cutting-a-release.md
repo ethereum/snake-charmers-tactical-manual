@@ -89,6 +89,7 @@ It is also helpful to put a blurb into the ``#pending-announcements`` channel in
 
 - Although it's not always possible, try to batch up breaking changes within a library. For example, if you're going to release a major version of a lib, try and get any other low-hanging fruit and/or prioritized breaking changes in at the same time.
 - Utilize beta versions. If there is a big breaking change going in, or multiple big breaking changes going in, consider releasing a beta version or two.
+  * To perform a release from a pre-release version, use `make notes bump=stage` and `make release bump=stage`
 - If you know a change will be breaking in a downstream library, add an upper pin to the dependency requirement in said downstream library while the PR is open in the upstream library.
 - We prefer to have breaking changes that cascade across libraries queued up at the same time so that we can release affected libraries in concert. This cuts down on thrash and dependency hell for both ourselves and users.
 - Before moving from beta to stable, take one last look at the changes, and consider adding an upper pin of that dependency to any downstream libraries that may be affected.
