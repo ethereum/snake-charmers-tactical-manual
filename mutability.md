@@ -24,7 +24,7 @@ way?
 
 The answer has two parts.
 
-First, *internally* by being disciplined, we can avoid entire classes of bugs that *can* arrise inadvertantly due to the use of mutability.  While the example above doesn't have any immediate issues related to mutability, it isn't unreasonable to imagine a refactor to the function above which ends up introducing a bug due to the use of mutability.
+First, *internally* by being disciplined, we can avoid entire classes of bugs that *can* arrise inadvertently due to the use of mutability.  While the example above doesn't have any immediate issues related to mutability, it isn't unreasonable to imagine a refactor to the function above which ends up introducing a bug due to the use of mutability.
 
 Second, *externally* we want to set an easy to follow example.  We have plenty
 of 3rd party contributors and they take cues on how to write new code based on
@@ -50,7 +50,7 @@ Anytime you have an explicit reason to do so.  Some good reasons are:
 ## Types of multability and how to avoid it.
 
 
-### Programatic generation of various collection data structures
+### Programmatic generation of various collection data structures
 
 The use of lists
 
@@ -64,7 +64,7 @@ def get_things(all_items):
 ```
 
 We use `tuple` in place of lists and generators or comprehensions in place of
-`list.append` for programatic consprogramatic.
+`list.append` for programmatic consprogramatic.
 
 
 ```python

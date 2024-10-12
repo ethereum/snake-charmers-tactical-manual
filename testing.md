@@ -104,7 +104,7 @@ def foo(bar):
     return quux
 ```
 
-We have a function `foo` that computes a value based on an input `bar` by executing an auxillary routine for some number of rounds `ROUND_COUNT`. To test the auxillary routine (here the body of the `for` loop), we can extract it from `foo`.
+We have a function `foo` that computes a value based on an input `bar` by executing an auxiliary routine for some number of rounds `ROUND_COUNT`. To test the auxillary routine (here the body of the `for` loop), we can extract it from `foo`.
 
 ```python
 def _compute_quux(baz, i):
@@ -144,7 +144,7 @@ Mocks **can** be ok when all other options are exhausted, or it is the pragmatic
 
 ### But maybe don't mock things
 
-A recurring pattern in our projects is a Backend Pattern, where you can swap in providers of functionality. Instead of mocking things that the code wasn't designed to do, try implementing the Backend Pattern, and swap in a dummy backend to stub out responses as fixtures. This provides most of the benefits of mocking, without sidestepping big swaths of code. You have more confidence that the majority of the feature was tested with the dummy backend. Then when you need to test a "live" backend, you can add use a few, targetted tests.
+A recurring pattern in our projects is a Backend Pattern, where you can swap in providers of functionality. Instead of mocking things that the code wasn't designed to do, try implementing the Backend Pattern, and swap in a dummy backend to stub out responses as fixtures. This provides most of the benefits of mocking, without sidestepping big swaths of code. You have more confidence that the majority of the feature was tested with the dummy backend. Then when you need to test a "live" backend, you can add use a few, targeted tests.
 
 ## Tips and Tricks
 
