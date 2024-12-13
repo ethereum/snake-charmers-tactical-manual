@@ -9,6 +9,23 @@ The team should review any outstanding PRs and recent merges at the weekly sync.
 
 See the Best Practices For Major Version Changes section below for more details on things to consider for a major version bump.
 
+### Annually scheduled releases
+
+Python is now maintaining a regular schedule of releasing a new version and deprecating
+an old one every October. Adding support for a new version is considered a feature and
+can be included with any release. We consider removing support for a version breaking,
+thus should only be done in a major release.
+
+Updates from the [project template](https://github.com/ethereum/ethereum-python-project-template)
+can be saved up through the year and done in one update cycle over Q4 of each year.
+This should include adding the new python version and can be done as soon as CI has an
+image available.
+
+Removal of a supported python version should be coordinated with the major release
+of `web3.py`. In order to avoid breaking libraries downstream, remove it first in
+`web3.py`, then work backwards up the dependency tree. Utilizing beta releases can
+make this process less disruptive.
+
 How to cut a new release
 ====
 
