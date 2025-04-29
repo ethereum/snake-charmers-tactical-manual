@@ -164,3 +164,60 @@ class User:
 Replacing `assert` statements with `raise AssertionError(...)` (or whatever
 exception class you prefer) ensures that these checks cannot be trivially
 disabled.
+
+
+## Fire and forget async context blocks
+
+When writing asyncio-based async context blocks (i.e. using async context managers), we sometimes
+fail to continuously check that the background task started is still running. For example,
+our Connection multiplexing was implemented
+(https://github.com/ethereum/trinity/blob/0db2a36706e5327fa040258bb5fef3fae75d9d8c/p2p/connection.py#L132-L153)
+using an async context manager that used a bare yield, so its callsites could not perform any
+health checks on the task running in the background, hence a crash in the background task that failed
+to cancel the connection would leave the service running forever.
+
+Here's a simpler, self-contained example:
+
+```python
+@contextlib.asynccontextmanager
+async def acmanager(stream_writer):
+    future = asyncio.create_task(producer(stream_writer))
+    try:
+        yield
+    finally:
+        if not future.done():
+            future.cancel()
+        with contextlib.suppress(asyncio.CancelledError):
+            await future
+
+async def run():
+    reader, writer = await asyncio.open_connection(...)
+    async with acmanager(writer):
+        await consumer(reader)
+```
+
+In the above example, if the background task running `producer(stream_writer)` terminates without
+closing the the writer, the `run()` function would continue running indefinitely and the exception
+from the background task would only propagate once the `await consumer(reader)` was cancelled (e.g
+by some external event like a `KeyboardInterrupt`), causing us to leave the `acmanager()` context.
+
+In order to avoid this we need to make sure our async context managers always yield a reference
+to something that can be used to wait for (or check the state) of the background task. In the
+above example it could be something like:
+
+```python
+@contextlib.asynccontextmanager
+async def acmanager(stream_writer):
+    future = asyncio.create_task(producer(stream_writer))
+    try:
+        yield future
+    finally:
+        ...
+
+async def run():
+    reader, writer = await asyncio.open_connection(...)
+    async with acmanager(writer) as streaming_task:
+        await asyncio.wait(
+            [consumer(reader), streaming_task],
+            return_when=asyncio.FIST_COMPLETED)
+```
