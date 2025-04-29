@@ -394,7 +394,7 @@ result = (
 
 ### Comprehensions
 
-When a list/dict/etc comprehension exceeds the 100 character line lenght it
+When a list/dict/etc comprehension exceeds the 100 character line length it
 **should** be split across multiple lines with the `statement/for/in/if`
 each on their own lines.
 

@@ -29,7 +29,7 @@ can be broken down into iterative smaller changes.
 
 It is ok to develop a large feature branch with broad sweeping API changes, but
 it will need to be broken down into smaller pieces that maintain backwards
-compatability in order to be merged.
+compatibility in order to be merged.
 
 
 ## Community Support
